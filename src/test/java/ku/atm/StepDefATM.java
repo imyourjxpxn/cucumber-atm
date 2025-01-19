@@ -70,4 +70,16 @@ public class StepDefATM {
                      bank.getCustomer(id).getAccount().getBalance());
     }
 
+    @When("I deposit {int}")
+    public void iDeposit(int amount) {
+        // Perform the deposit operation
+        atm.deposit(amount);
+    }
+
+    @Then("my account balance should be {int}")
+    public void myAccountBalanceShouldBe(int expectedBalance) {
+        // Verify the account balance is as expected
+        assertEquals(expectedBalance, atm.getBalance());
+    }
+
 }
